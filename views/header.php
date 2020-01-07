@@ -11,10 +11,10 @@
         <title>PHP jeej</title>
     </head>
     <body>
-        <div class = "container">
+        <div class = "container-fluid">
 
             <nav class = "navbar navbar-expand-lg navbar-light bg-light">
-                <a class = "navbar-brand" href = "#">Index</a>
+                <a class = "navbar-brand" href = "alldata.php">Index</a>
                 <button class = "navbar-toggler" type = "button" data-toggle = "collapse" data-target = "#navbarNavDropdown" aria-controls = "navbarNavDropdown" aria-expanded = "false" aria-label = "Toggle navigation">
                     <span class = "navbar-toggler-icon"></span>
                 </button>

@@ -8,7 +8,7 @@ $requete->closeCursor();
 if(isset($_POST['submit'])){
         $disc_title = $_POST['title'];
         $disc_year = $_POST['year'];
-        $disc_picture =$_POST['picture'];
+        $disc_picture =basename($_POST['picture']).PHP_EOL;
         $disc_label =$_POST['label'];
         $disc_genre =$_POST['genre'];
         $disc_price = $_POST['price'];
@@ -33,7 +33,6 @@ if($st = $db ->prepare($sql)){
     $st->bindValue(':artist_id',$artist_id);
         if($st->execute()){
             header('Location: ../views/alldata.php');
-
         }else{
             echo "Probleme technique.";
         }

@@ -5,7 +5,7 @@ require '../controllers/bdd_create_controller.php';
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <form action="../controllers/bdd_create_controller.php" method="post">
+            <form action="../controllers/bdd_create_controller.php" method="post" enctype="multipart/form-data">
                 <label for="title">Title</label>
                 <input type="text" name="title" id="disc_title" class="form-control">
                 <label for="year">Année du disque</label>
@@ -31,10 +31,10 @@ require '../controllers/bdd_create_controller.php';
                     }
                     ?>
                 </select>
-                <input type="submit" name="submit" value="Submit">
+                <input class="btn btn-success" type="submit" name="submit" value="Submit">
             </form>
 
-            <a href="alldata.php">Back to home</a>
+            <a class="badge badge-info" href="alldata.php">Back to home</a>
 
         </div>           
     </div>       
