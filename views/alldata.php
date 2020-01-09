@@ -17,6 +17,7 @@ require '../controllers/bdd_index_controller.php';
                         <th>Artist Name</th>
                     </tr>
                 </thead>
+                <tbody>
                 <?php foreach ($tableauart as $disc) { ?>
                     <tr>
 
@@ -32,8 +33,11 @@ require '../controllers/bdd_index_controller.php';
                             <a href="../controllers/bdd_delete_controller.php?disc_id=<?= $disc->disc_id ?>" class="btn btn-danger" role="button">DELETE</a></td>
                     </tr>
                 <?php } ?>
+                    </tbody>
+                    <tfoot>
                     <th><a class="badge badge-warning" href="create.php">Create</a></th>
-            </table>
+            </tfoot>
+            </table>            
         </div>           
     </div>       
 </div>

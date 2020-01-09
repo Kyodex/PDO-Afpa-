@@ -5,7 +5,7 @@ require 'co_bdd_controller.php';
 $requete = $db->query("select * FROM artist ORDER BY artist_name;");
 $artiste = $requete->fetchall(PDO::FETCH_OBJ);
 $requete->closeCursor();
-$picture = $disc->disc_picture;
+$picture_name = $disc->disc_picture;
 
 
 
@@ -18,6 +18,7 @@ if (isset($_POST['submit'])) {
     $disc_price = $_POST['price'];
     $artist_name = $_POST['artist'];
     
+    if($_FILES['picture']['name'] !=''){
     // recuperation du chemin, du nom et du fichier
     $picture_path = '../assets/pictures/ ';
     $picture_name = basename($disc_picture['name']);
@@ -35,6 +36,7 @@ if (isset($_POST['submit'])) {
         } else {
             echo "fail dl";
     }}
+    }
     //recuperation des artist name pour le select .
     $requete = $db->prepare('SELECT artist_id FROM artist WHERE artist_name = :artist_name');
     $requete->bindValue(':artist_name', $artist_name);
@@ -50,12 +52,8 @@ if (isset($_POST['submit'])) {
         $st->bindValue(':disc_year', $disc_year);
         $st->bindValue(':disc_label', $disc_label);
         $st->bindValue(':disc_genre', $disc_genre);
-        $st->bindValue(':disc_price', $disc_price);
-        if (empty(trim($picture_name))) {
-            $picture_name = $picture;
-        }
+        $st->bindValue(':disc_price', $disc_price);    
         $st->bindValue(':disc_picture', $picture_name);
-
         $st->bindValue(':artist_id', $artist_id);
         if ($st->execute()) {
             header('Location: ../views/alldata.php');
