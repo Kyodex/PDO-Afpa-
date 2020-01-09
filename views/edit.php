@@ -7,7 +7,7 @@ require 'header.php';
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <form action="#" method="post">
+            <form action="#" method="post" enctype="multipart/form-data">
                 <label for="title">Title</label>
                 <input type="text" name="title" id="disc_title" class="form-control" value="<?=$disc->disc_title?>">
                 <label for="year">Année du disque</label>
