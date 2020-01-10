@@ -5,5 +5,5 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // regex :
 $text_regex = '/^[a-zA-Z\-\,\. \déèàçùëüïôäâêûîô#&]+$/';
-$price_regex= '/^[\d]+[.]{1}[\d]{2,}+$/';
+$price_regex= '/^[\d]{1,6}[.]?[\d]{0,2}+$/';
 $num_regex = '/^[0-9]+$/';
