@@ -7,3 +7,4 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $text_regex = '/^[a-zA-Z\-\,\. \déèàçùëüïôäâêûîô#&]+$/';
 $price_regex= '/^[\d]{1,6}[.]?[\d]{0,2}+$/';
 $num_regex = '/^[0-9]+$/';
+$password_regex= '/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-+!*$@%_])([-+!*$@%_\w])/';

@@ -19,29 +19,16 @@ require'header.php';
                         <p class="card-text">  <?= $disc->artist_name; ?> </p>
                     </div>
                     <a class="badge badge-info" href="alldata.php">Back to home</a>
-                    <a href="../controllers/bdd_delete_controller.php?disc_id=<?= $disc->disc_id ?>" class="btn btn-danger" role="button" data-toggle="modal" data-target="#delete">DELETE</a></td>
-                                <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="delete">Delete confirm</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true"><?=$disc->disc_title?></span>
-                                                </button>
-                                            </div>
-                                        <div class="modal-body">
-                                            Voulez vous vraiment supprimer cet objet ?
-                                        </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Delete confirm</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php if(isset($_SESSION['login'])){ ?><a href="edit.php?disc_id=<?= $disc->disc_id ?>" class="btn btn-outline-warning" role="button">Edit</a><?php 
+                                
+                                }?>
             </div>
-        </div>           
-    </div>       
+        </div>
+    </div>
+</div>
+</div>
+</div>           
+</div>       
 </div>
 
 

@@ -1,6 +1,5 @@
-<?php
-?>
-<html lang="en">
+<?php ?>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,10 +26,34 @@
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <a class="dropdown-item" href="views/alldata.php">Exercices pdo Artist...</a>
-                                    <a class="dropdown-item" href= "views/create.php">Page ajouter.</a>
+                                    <a class="dropdown-item" href= "views/create.php">Page ajouter.</a>                                    
                                 </div>
-                                </li>
+                            </li>
+                            <li class="nav-item ">
+                                <a class="nav-link" href="views/login.php">Connexion</a>
+                            </li>
                         </ul>
-                        
-                        <?php require 'views/footer.php';
-                        ?>
+                    </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">                
+                    <div class="card text-center">
+                        <div class="card-header">
+                            JEEJ
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Yosh</h5>
+                            <p class="card-text">Il n'y a rien ici ...</p>
+                            <a href="views/alldata.php" class="btn btn-dark">Allez au crud...</a>
+                        </div>
+                        <div class="card-footer text-muted">
+                            créé un jour 
+                        </div>
+                    </div>
+                </div>           
+            </div>       
+        </div>
+        <?php require 'views/footer.php';
+        ?>

@@ -40,14 +40,6 @@ if (isset($_POST['submit'])) {
         $finfo = finfo_open(FILEINFO_MIME_TYPE);
         $mimetype = finfo_file($finfo, $_FILES['picture']['tmp_name']);
         finfo_close($finfo);
-
-        if (in_array($mimetype, $aMimeTypes)) {
-            if (move_uploaded_file($_FILES['picture']['tmp_name'], $picture_path)) {
-                echo "image dl";
-            } else {
-                echo "fail dl";
-            }
-        }
     } else {
         $error_msg['picture'] = "Veuillez inserer une image";
     }
@@ -94,7 +86,13 @@ if (isset($_POST['submit'])) {
     if (count($error_msg) == 0) {
 
         $sql = 'INSERT INTO disc (disc_title, disc_year, disc_picture, disc_label, disc_genre, disc_price, artist_id) VALUES (:disc_title, :disc_year, :disc_picture, :disc_label, :disc_genre, :disc_price, :artist_id)';
-
+        if (in_array($mimetype, $aMimeTypes)) {
+            if (move_uploaded_file($_FILES['picture']['tmp_name'], $picture_path)) {
+                echo "image dl";
+            } else {
+                echo "fail dl";
+            }
+        }
         if ($st = $db->prepare($sql)) {
             $st->bindValue(':disc_title', $disc_title, PDO::PARAM_STR);
             $st->bindValue(':disc_year', $disc_year, PDO::PARAM_INT);

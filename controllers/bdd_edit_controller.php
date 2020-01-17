@@ -44,14 +44,6 @@ if (isset($_POST['submit'])) {
         $finfo = finfo_open(FILEINFO_MIME_TYPE);
         $mimetype = finfo_file($finfo, $_FILES['picture']['tmp_name']);
         finfo_close($finfo);
-        if (in_array($mimetype, $aMimeTypes)) {
-            if (move_uploaded_file($_FILES['picture']['tmp_name'], $picture_path)) {
-                echo "image dl";
-            } else {
-                echo "fail dl";
-            }
-        }else{ $error_msg['picture'] = "veuillez rentrer une image valide.";
-        }
     } else {
         $picture_name = $disc->disc_picture;
     }
@@ -96,7 +88,15 @@ if (isset($_POST['submit'])) {
 
     if (count($error_msg) == 0) {
         $sql = 'UPDATE disc SET disc_title=:disc_title, disc_year=:disc_year, disc_label=:disc_label, disc_genre=:disc_genre, disc_price=:disc_price, disc_picture=:disc_picture, artist_id=:artist_id WHERE disc_id =:disc_id ';
-
+        if (in_array($mimetype, $aMimeTypes)) {
+            if (move_uploaded_file($_FILES['picture']['tmp_name'], $picture_path)) {
+                echo "image dl";
+            } else {
+                echo "fail dl";
+            }
+        } else {
+            $error_msg['picture'] = "veuillez rentrer une image valide.";
+        }
         if ($st = $db->prepare($sql)) {
             $st->bindValue(':disc_id', $_GET['disc_id']);
             $st->bindValue(':disc_title', $disc_title, PDO::PARAM_STR);
