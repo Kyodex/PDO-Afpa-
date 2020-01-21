@@ -100,5 +100,5 @@ if (isset($_SESSION['login'])) {
  </div>
 <?php
 }
-require 'footer.php'
+require 'footer.php';
 ?>

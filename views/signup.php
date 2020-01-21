@@ -1,5 +1,6 @@
 <?php
 require '../controllers/create_user_controller.php';
+require '../controllers/mail_controller.php';
 require 'header.php';
 
 ?>
@@ -22,8 +23,15 @@ require 'header.php';
                 <input class="form-group form-control" type="password" name="password2" id="password2" value="">
                 <p class="text-danger"><?php if(isset($errorco['password2'])){ echo $errorco['password2'];} ?></p>
                 
-                <input class="btn btn-success" type="submit" name="submit" value="Submit">
+                
+                <label for="mail">Votre Email: </label>
+                <input type="mail" name="mail" id="mail" class="form-group form-control">
+                 <p class="text-danger"><?php if(isset($errorco['mail'])){ echo $errorco['mail'];} ?></p>
+
+
+                <input class="btn btn-success" type="submit" name="submit" value="S'inscrire">
             </form>
+                
            </div>
         </div>   
     </div>       
