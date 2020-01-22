@@ -1,4 +1,5 @@
 <?php
+session_start();
 // connexion a la base de données
 $db = new PDO('mysql:host=localhost:3307;charset=utf8;dbname=record', 'root', '');
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
